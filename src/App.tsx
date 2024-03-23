@@ -76,7 +76,6 @@ function App() {
   const customInlineInputRule = new InputRule(
     /\s<>$/, // Regular expression pattern to match
     (state, match, start, end) => {
-      console.log('start')
 
       const randomText = Math.random().toString(36).substring(7); // Generate a random string
       const tr = state.tr.replaceWith(start+1, end, blueTextNode.create(null, [customSchema.text(`<> ${randomText} `)])); // Replace with blue text node containing 'hello'
@@ -109,8 +108,6 @@ function App() {
   let view = new EditorView(editorConatiner, {
     state,
     dispatchTransaction(transaction) {
-      console.log("Document size went from", transaction.before.content.size,
-                  "to", transaction.doc.content.size)
       let newState = view.state.apply(transaction)
       view.updateState(newState)
     },
@@ -118,7 +115,6 @@ function App() {
 
   addBlock.addEventListener('click', (evt) => {
     evt.preventDefault();
-    console.log('add block');
     let tr1 = view.state.tr.insert(0, customSchema.nodes.paragraph.create(null, null));
     tr1 = tr1.insert(1, customSchema.nodes.horizontal_rule.create(null, null));
     tr1 = tr1.setSelection(TextSelection.create(tr1.doc, 0));
@@ -128,7 +124,6 @@ function App() {
 
   addBlock.addEventListener('mousedown', (evt) => {
     evt.preventDefault();
-    console.log('mouse down');
     
   })}
 
