@@ -79,7 +79,7 @@ function App() {
       console.log('start')
 
       const randomText = Math.random().toString(36).substring(7); // Generate a random string
-      const tr = state.tr.replaceWith(start+1, end+1, blueTextNode.create(null, [customSchema.text(`<> ${randomText} `)])); // Replace with blue text node containing 'hello'
+      const tr = state.tr.replaceWith(start+1, end, blueTextNode.create(null, [customSchema.text(`<> ${randomText} `)])); // Replace with blue text node containing 'hello'
       return tr;
     }
   );
