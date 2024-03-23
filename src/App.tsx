@@ -6,11 +6,8 @@ import {schema} from "prosemirror-schema-basic"
 import {undo, redo, history} from "prosemirror-history"
 import {keymap} from "prosemirror-keymap"
 import {baseKeymap} from "prosemirror-commands"
-import { Fragment, NodeType, Schema } from 'prosemirror-model';
+import { NodeType, Schema } from 'prosemirror-model';
 import { InputRule, inputRules } from "prosemirror-inputrules"
-import { Plugin } from 'prosemirror-state'
-import { Decoration, DecorationSet } from 'prosemirror-view'
-import CustomSelect from './CustomSelect'
 import ReactDOM from 'react-dom' 
 
 
@@ -19,8 +16,6 @@ function App() {
   const CustomComponent = () => {
     return <div style={{ backgroundColor: 'yellow', padding: '5px' }}>Custom Component</div>;
   };
-
-  const dropdownRef = useRef(null);
 
   let customSchema = new Schema({
     nodes: schema.spec.nodes.append({
